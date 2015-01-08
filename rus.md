@@ -133,12 +133,21 @@ __Как надо?__
 ```
 
 __Если вам нужно сделать элемент у элемента, значит вам нужно сделать новый блок!__
+Вместо:
 ```html
 <div class='block'>
-  <div class='block__elem1'>
-    <div class='block2'&gt;&lt;/div&gt;</code>
-<code>    &lt;/div&gt;</code>
-<code>&lt;/div&gt;</code>
+    <div class='block__elem1'>
+        <div class='block__elem1__elem2'></div>
+    </div>
+</div>
+```
+Надо делать новый блок
+```html
+<div class='block1'>
+    <div class='block2'>
+        <div class='block2__elem'></div>
+    </div>
+</div>
 ```
 
 __Не пишите странные имена__
