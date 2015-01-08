@@ -12,7 +12,7 @@
  - Префикс b- и его воображаемые друзья: l-,i-,g- и еретический js-
  - Как менять внешний вид блока: правила модификации
 3. Три главных правила
-4. Три главных ошибки, про которые нигде не написано
+4. Ошибки, про которые нигде не написано
 5. Типичные вопросы, ответов на которые вы не нашли на bem.info
 6. Альтернативы или же братья: SMASS, OOCSS, MCSS и BEM.
 7. Семантика в BEM.
@@ -164,8 +164,33 @@ __Не пишите странные имена__
 
 Бейте на блоки!
 
- - Модификатор
- - Префикс b- и его воображаемые друзья: l-,g- и еретический js-
+##### Модификатор
+Модификаторы в #yandex #b_:
+```css
+.block-name__elem_key_value
+```
+
+Но для всего мира ([csswizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/),[cssguidelin](http://cssguidelin.es/#bem-like-naming),[sitepoint](http://www.sitepoint.com/bem-smacss-advice-from-developers/)) это:
+```css
+.blockname__elem--mod {}
+```
+Синтаксис модификаторов `.blockname__elem--mod` был запущен в 2012 с легкой руки Nicolas Gallagher @necolas в http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+Причина:
+> This is merely a naming pattern that I’m finding helpful at the moment. It could take any form. But the benefit lies in removing the ambiguity of class names that rely only on (single) hyphens, or underscores, or camel case.
+> http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+
+> The reason for double rather than single hyphens and underscores is so that your block itself can be hyphen delimited, for example:
+> http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+
+Некоторые используют сокращённые модификаторы:
+* [Dan Tello "Sassier (BE)Modifers"](http://frontender.info/bem-sass-modifiers/)
+* [iDeus Team](https://github.com/ideus-team/guidelines/blob/master/frontend/bem.md)
+
+
+- Префикс b- и его воображаемые друзья: l-,i-,g- и еретический js-
+   
+А префикс js- (недолго существовавший как с- в #b_) вероятно тоже популяризировал Nicolas Gallagher @necolas в той же статье http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+ 
  - Как менять внешний вид блока: правила модификации
 
 ##8. BEM и CSS-препроцессоры: SASS и LESS.
