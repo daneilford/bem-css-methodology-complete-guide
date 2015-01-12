@@ -1,6 +1,6 @@
 #b_ BEM CSS methodology: The complete guide
 
-__BEM prohibits put an elements in the elements!__  
+__BEM prohibits put an elements in the elements in CSS!__  
 You make the most typical error in BEM markup - writing a `block__element__element`.
 You must create new blocks, rather than copying DOM-tree.
 
@@ -21,7 +21,7 @@ Right CSS:
     .block__elem2 {}
     .block__elem3 {}
 
-__If you need to make an element of an element, then you need to make a new block!__
+__If you need to make an element of an element, then you need to make a new block or make your bem-tree with a single nested elements!__
 
 WRONG:
 
@@ -31,7 +31,7 @@ WRONG:
         </div>
     </div>
   
-RIGHT:
+RIGHT #1: Make a new block
 
     <div class='block1'>
         <div class='block2'>
@@ -39,6 +39,16 @@ RIGHT:
         </div>
     </div>
 
+
+RIGHT #2: Make your bem-tree with a single nested elements
+
+    <div class='block'>
+        <div class='block__elem1'>
+            <div class='block__elem2'></div>
+        </div>
+    </div>
+
+_Pay attention - you can not put elements in a elements in the css, but you can and should put elements in a elements into html! DOM-tree and BEM-tree can be different._
 
 __Do not write strange names, putting the element name in the name of the block!__
 
