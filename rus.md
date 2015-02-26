@@ -182,10 +182,18 @@ __Не пишите странные имена__
 > The reason for double rather than single hyphens and underscores is so that your block itself can be hyphen delimited, for example:
 > http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
 
+###### Сокращённые модификаторы
+
 Некоторые используют сокращённые модификаторы:
 * [Dan Tello "Sassier (BE)Modifers"](http://frontender.info/bem-sass-modifiers/)
 * [iDeus Team](https://github.com/ideus-team/guidelines/blob/master/frontend/bem.md)
+* [2Gis](https://twitter.com/Chaptykov/status/570587770432962561)
+* [Одноклассники](https://twitter.com/from_anywhere/status/570602747915059200)
 
+Проблемы с сокращенными модификаторами:
+ - Если у вас генерация html кода
+ - Если у вас миксование блоков с модификаторами: http://codepen.io/hudochenkov/pen/OPEMwK?editors=110
+ - Доводы от BEM-team: http://getbem.com/faq/#why-the-modifier-classes-are-prefixed
 
 - Префикс b- и его воображаемые друзья: l-,i-,g- и еретический js-
    
