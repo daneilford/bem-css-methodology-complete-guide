@@ -184,8 +184,22 @@ __Не пишите странные имена__
 
 ###### Сокращённые модификаторы
 
-Некоторые используют сокращённые модификаторы:
-* [Dan Tello "Sassier (BE)Modifers"](http://frontender.info/bem-sass-modifiers/)
+Вариацией модификаторов являются "Сокращенные модификаторы" через multiple classes 
+
+```html
+ <div class="blockName -mod_val"></div>
+```
+```scss
+.blockName {
+  &.-mod_val {}
+}
+```
+Стили модификаторов НЕ пишутся без привязки к имени блока 
+То что в Классическом BEM пишется как `.block_mod_val {}`
+в сокращенных модификаторах пишут как `.block.-mod_val {}`
+
+Компании и разработчики, которые используют сокращённые модификаторы:
+* [Dan Tello "Sassier (BE)Modifers"](http://viget.com/extend/bem-sass-modifiers)
 * [iDeus Team](https://github.com/ideus-team/guidelines/blob/master/frontend/bem.md)
 * [2Gis](https://twitter.com/Chaptykov/status/570587770432962561)
 * [Одноклассники](https://twitter.com/from_anywhere/status/570602747915059200)
