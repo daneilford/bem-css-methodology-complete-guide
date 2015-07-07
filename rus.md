@@ -251,3 +251,5 @@ Extend-Only Selectors в Sass == абстрактный блок (i-блок) в
   @extend %i-block;
 }
 ```
+
+Взять примеры ошибок из https://dl.dropboxusercontent.com/u/66873654/%D0%91%D0%AD%D0%9C%D0%BE%D1%81%D0%B8%D0%BF%D0%B5%D0%B4.pdf
