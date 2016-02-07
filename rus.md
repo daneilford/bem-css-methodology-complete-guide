@@ -1,7 +1,7 @@
-#b_ BEM CSS методология: Полное руководство
+#b_ БЭМ CSS методология: Полное руководство
 
-Главное: классы b-someblock__someelement__element__element-modificator - это не BEM!
-Как правильно верстать по BEM - читайте ниже.
+Главное: классы b-someblock__someelement__element__element-modificator - это не БЭМ!
+Как правильно верстать по БЭМ - читайте ниже.
 
 1. Длинное необязательное вступление
 2. Суть #b_
@@ -13,92 +13,106 @@
  - Как менять внешний вид блока: правила модификации
 3. Три главных правила
 4. Ошибки, про которые нигде не написано
-5. Типичные вопросы, ответов на которые вы не нашли на bem.info
-6. Альтернативы или же братья: SMASS, OOCSS, MCSS и BEM.
-7. Семантика в BEM.
-8. BEM и CSS-препроцессоры: Sass и LESS.
-9. Путь Яндекса: кому и зачем нужны bem-tools и прочие "ужасы"
-10. bem-bl и bem-bl в сниппетах от Яндекса (скоро!)
-11. Альтернативные реализации BEM-методологии
-12. Примеры сайтов на BEM
-- Яндекс-сайтов по BEM
-- НЕ-Яндекс-сайтов по BEM
-- Редизайна по BEM
-13. Отзывы: Мнения людей меняется за пару месяцев работы с BEM. Путь к пониманию.
-14. BEM для атеистов - почему это не религия
+5. Типичные вопросы, ответов на которые вы не нашли на БЭМ.info
+6. Альтернативы или же братья: SMASS, OOCSS, MCSS и БЭМ.
+7. Семантика в БЭМ.
+8. БЭМ и CSS-препроцессоры: Sass и LESS.
+9. Путь Яндекса: кому и зачем нужны БЭМ-tools и прочие "ужасы"
+10. БЭМ-bl и БЭМ-bl в сниппетах от Яндекса (скоро!)
+11. Альтернативные реализации БЭМ-методологии
+12. Примеры сайтов на БЭМ
+- Яндекс-сайтов по БЭМ
+- НЕ-Яндекс-сайтов по БЭМ
+- Редизайна по БЭМ
+13. Отзывы: Мнения людей меняется за пару месяцев работы с БЭМ. Путь к пониманию.
+14. БЭМ для атеистов - почему это не религия
 
 
 ## 1. Длинное необязательное вступление
-История понимания BEM и зачем он нужен.
-Можно смело пропустить и читать сразу пункт №2.
 
-— Я не понимал BEM ("что за ерунда придуманная программерами, которые не знают CSS"). Нет не программерами. И не ерунда.
-— Потом я думал что понимал BEM ("[у меня типа независимые стили: специфичность длиной в ширину экрана](http://delka.name/blog/2013/04/bem-otkroveniya-prinyavshih-veru/)").
-— Потом не знал как же правильно его применять, особенно в рамках веб-студии.
+История и предпосылки возникновения БЭМ. Если это вам не интересно — можете смело переходить к следующему разедлу.
 
-Теперь понимаю и знаю. И хочу рассказать и доказать вам что BEM - единственный правильный вариант организации вёрстки.
+Я прошел следующие стадии знакомства с БЭМ:
+
+1. Не понимание: «что за ерунда придуманная программистами, которые не знают CSS». Нет не программистами. И не ерунда.
+2. Иллюзия понимания: «[_независимые_ стили с селекторами в ширину экрана][1]».
+3. Не знание того, как же правильно его применять, особенно в рамках веб-студии.
+
+Теперь понимаю и знаю. И хочу рассказать и доказать вам что БЭМ - единственный правильный вариант организации вёрстки.
+
 - Да-да, и для небольших студий, у которых не один большой, а множество средних проектов.
 - И для фрилансера с маленькими сайтами.
 - И для лендингов.
-- И даже когда вы делаете правки в чужом спагетти-коде - вы можете (и должны) примерять BEM!
+- И даже когда вы делаете правки в чужом спагетти-коде - вы можете (и должны) примерять БЭМ!
 
-В BEM прекрасно вписываются SMACSS, OOCSS, MCSS. Большинство не знает что такое BEM, или думает, но знает неправильно. Если вы знаете что такое BEM и считаете что он не для вас (или вообще только Яндексу нужен) - дочитайте до конца. Я расскажу вам о том что BEM - это не "xslt, bem-bl, xml, bem-tools, js", а это методология которая решает проблемы с которыми сталкиваемся мы все. Нужная всем. Незаменимая для компаний, значительно ускоряющая скорость и стоимость разработки, поддержки, развития, передачи проекта другим разработчикам, масштабирования. Это прорыв уровня ООП для CSS.
+В БЭМ прекрасно вписываются SMACSS, OOCSS, MCSS. Большинство не знает что такое БЭМ, или думает, что знает, но ошибается. Если вы знаете что такое БЭМ и считаете, что он не для вас (или вообще только Яндексу нужен) — дочитайте до конца. Я расскажу вам о том что БЭМ - это не `xslt`, `BEM-bl`, `xml`, `BEM-tools`, `js`, а методология, которая решает проблемы с которыми сталкиваемся мы все. Нужная всем. Незаменимая для компаний, значительно ускоряющая скорость и стоимость разработки, поддержки, развития, передачи проекта другим разработчикам, масштабирования. Это прорыв уровня ООП для CSS.
 
-И более того: BEM - семантичен как ничто другое при правильном применении!
-Поехали, я расскажу вам о тех идеях и логике, что стоят за BEM, и почему и как вы можете его использовать!
+И более того: БЭМ - семантичен как ничто другое при правильном применении! Поехали, я расскажу вам о тех идеях и логике, что стоят за БЭМ, и почему и как вы можете его использовать!
 
-Существует огромное кол-во статей, докладов, презентаций про BEM. Почти все - от Яндекса. Я читал все статьи, все доклады по BEM, ездил на субботники, общался с Харисовым, Ткаченко и разработчиками библиотеки bem-bl. Но чтоб понять всё (а не думать что понял) мне потребовалось 5 лет.
+Существует огромное кол-во статей, докладов, презентаций про БЭМ. Почти все - от Яндекса. Я читал все статьи, все доклады по БЭМ, ездил на субботники, общался с Харисовым, Ткаченко и разработчиками библиотеки БЭМ-bl. Но чтоб понять всё (а не думать, что понял) мне потребовалось 5 лет.
 
-Вообще если бы было меньше бредовых статей типа этой: http://habrahabr.ru/post/203440/ которые пишут те, кто сам ничего не понял, было бы лучше. И ошибок было бы меньше.
+Вообще если бы было меньше бредовых статей типа этой: «[Верстка для самых маленьких. Верстаем страницу по БЭМу][2]», которые пишут те, кто сам ничего не понял, было бы лучше. И ошибок было бы меньше.
+
 
 ## 2. Суть #b_
 ### 2.1 Зачем это всё?
 #### Главная проблема вёрстки: каскад.
-Зачем был придуман BEM? Чтоб уйти от каскада.
+
+Зачем был придуман БЭМ? Чтоб уйти от каскада.
+
 
 ##### Почему надо уходить от каскада?
-Идея убрать каскад кажется дикой - как, это же каскад. У нас каскадные таблицы стилей! Каскад сверху до низу по всей странице! Мы в ~~детстве~~ 2000-х играли в игру "кто напишет меньше тегов"!
 
-Но. У нас страница состоит из блоков. Независимых блоков. Ее части не есть один большой текст, со стилями что спускаются вниз. Это блоки, что могут и должны иметь возможность переноситься.
+Идея убрать каскад кажется дикой - как, это же каскад. У нас каскадные таблицы стилей! Каскад сверху до низу по всей странице! Мы в ~~детстве~~ 2000-х играли в игру «кто напишет меньше тегов»!
+
+Но. У нас страница состоит из блоков. Независимых блоков. Её части не есть один большой текст, со стилями что спускаются вниз. Это блоки, что могут и должны иметь возможность переноситься.
 
 
-#### Разновидности BEM: НБ, АНБ, Лего, текущий BEM, BEM-CSS у "не Яндекса".
-Всё это BEM. Разновидности называются "подмножествами BEM".
+#### Разновидности БЭМ: НБ, АНБ, Лего, текущий БЭМ, БЭМ-CSS у «не Яндекса».
 
-#### Что не является BEM.
-НЕ BEM:
-- длинные строки каскада ради высокой специфичности селекторов - это не та независимость и ни разу не BEM.
+Всё это БЭМ. Разновидности называются «подмножествами БЭМ».
+
+
+#### Что не является БЭМ.
+
+НЕ БЭМ:
+- длинные строки каскада ради высокой специфичности селекторов - это не та независимость и ни разу не БЭМ.
 - базовые стили и их переопределения ниже _от_контекста_ - как общий стиль вёрстки
-- BEM это не только bemjson, bem-tools и прочее. АНБ - тоже BEM
+- БЭМ это не только БЭМ-json, БЭМ-tools и прочее. АНБ - тоже БЭМ
 
-#### Главные правила BEM.
+
+#### Главные правила БЭМ.
+
 Чтобы их осознать, мы с вами должны вспомнить как писать правильно. Вспомнить правила.
-Я говорю "вспомнить", потому что то о чем мы будем говорить - это ручная верстка по BEM.
-В правильных терминах bem это называется "CSS подмножество BEM".
-Потому что bem он не только про CSS.
+Я говорю «вспомнить», потому что то о чем мы будем говорить - это ручная верстка по БЭМ.
+В правильных терминах БЭМ это называется «CSS подмножество БЭМ».
+Потому что БЭМ он не только про CSS.
 
-Нам придётся совершить экскурс в историю и пройти путь развития BEM чтобы сформулировать четкие правила "BEM CSS" из общей методилогии.
-Чтоб собрать все пришлось читать апокрифы. Нет единого стандарта. Есть множество толкований - диалектов BEM. Евангелие от Вегеда, проповедь на внутренней коференции и статьи других апостолов, простите евангелистов BEM. Сам BEM допускает множество вариантов самой методологии. А уж какой путь выбирать в каждом конкретном случае, при модификации кода например - можно спорить и спорить. Поэтому -тот- старый добрый ручной BEM и правду похож на религию.
+Нам придётся совершить экскурс в историю и пройти путь развития БЭМ чтобы сформулировать четкие правила «БЭМ CSS» из общей методилогии.
+Чтоб собрать все пришлось читать апокрифы. Нет единого стандарта. Есть множество толкований - диалектов БЭМ. Евангелие от Вегеда, проповедь на внутренней коференции и статьи других апостолов, простите евангелистов БЭМ. Сам БЭМ допускает множество вариантов самой методологии. А уж какой путь выбирать в каждом конкретном случае, при модификации кода например - можно спорить и спорить. Поэтому -тот- старый добрый ручной БЭМ и правду похож на религию.
 
 Сводим всё из разных источников. Очень подробно. Много примеров.
 
+
 ##### .block
-Главное в BEM - понятие независимого блока.</h2>
+
+Главное в БЭМ - понятие независимого блока.
+
 > Независимый блок (НБ или просто блок) это самодостаточный элемент страницы, который при перемещении в другое место на странице или на другую страницу не теряет своей самодостаточности.
-> BEM.Клуб на Я.рушке, [Независимый блок](http://clubs.ya.ru/bem/replies.xml?item_no=4)
+> БЭМ.Клуб на Я.рушке, [Независимый блок][3]
 
 __Формальное определение__
 > Правила независимости блока:
 > 1. для описания элемента используется class, но не id
 > 2. каждый блок имеет префикс
 > 3. в таблице стилей нет классов вне блоков
-> BEM.Клуб на Я.рушке, [История создания BEM (часть первая)](http://clubs.ya.ru/bem/replies.xml?item_no=1398)
+> БЭМ.Клуб на Я.рушке, [История создания БЭМ (часть первая)](http://clubs.ya.ru/БЭМ/replies.xml?item_no=1398)
 
 Формальное определение нужно только затем чтоб описать при каких условиях он должен таким стать.
 Что такое стили вне блоков я опишу ниже.
 
 __"Как его таким написать?"__
-Просто писать стили тупо на каждый блок. BEM хорош тем, что позволяет не забивать голову ерундой с каскадом, а сосредоточимся на семантике и логике кода. А с препроцессорами BEM позволяет писать еще и очень чистый и логичный код. Но про это чуть позже.
+Просто писать стили тупо на каждый блок. БЭМ хорош тем, что позволяет не забивать голову ерундой с каскадом, а сосредоточимся на семантике и логике кода. А с препроцессорами БЭМ позволяет писать еще и очень чистый и логичный код. Но про это чуть позже.
 
 __Как проверить?__
 Просто навести на блок в инспекторе кода. У него не должно быть каскада.
@@ -170,7 +184,7 @@ __Не пишите странные имена__
 .block-name__elem_key_value
 ```
 
-Но для всего мира ([csswizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/),[cssguidelin](http://cssguidelin.es/#bem-like-naming),[sitepoint](http://www.sitepoint.com/bem-smacss-advice-from-developers/)) это:
+Но для всего мира ([csswizardry](http://csswizardry.com/2013/01/mindБЭМding-getting-your-head-round-БЭМ-syntax/),[cssguidelin](http://cssguidelin.es/#БЭМ-like-naming),[sitepoint](http://www.sitepoint.com/БЭМ-smacss-advice-from-developers/)) это:
 ```css
 .blockname__elem--mod {}
 ```
@@ -180,7 +194,7 @@ __Не пишите странные имена__
 > http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
 
 > The reason for double rather than single hyphens and underscores is so that your block itself can be hyphen delimited, for example:
-> http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+> http://csswizardry.com/2013/01/mindБЭМding-getting-your-head-round-БЭМ-syntax/
 
 ###### Сокращённые модификаторы
 
@@ -197,20 +211,20 @@ __Не пишите странные имена__
 Синтаксис с "-", а не с "_", т.к. иначе имя класса будет не валидно.
 
 Стили модификаторов НЕ пишутся без привязки к имени блока
-То что в Классическом BEM пишется как `.block_mod_val {}`
+То что в Классическом БЭМ пишется как `.block_mod_val {}`
 в сокращенных модификаторах пишут как `.block.-mod_val {}`
 
 Компании и разработчики, которые используют сокращённые модификаторы:
-* [Dan Tello "Sassier (BE)Modifers"](http://viget.com/extend/bem-sass-modifiers)
-* [iDeus Team](https://github.com/ideus-team/guidelines/blob/master/frontend/bem.md)
+* [Dan Tello "Sassier (BE)Modifers"](http://viget.com/extend/БЭМ-sass-modifiers)
+* [iDeus Team](https://github.com/ideus-team/guidelines/blob/master/frontend/БЭМ.md)
 * [2Gis](https://twitter.com/Chaptykov/status/570587770432962561)
 * [Одноклассники](https://twitter.com/from_anywhere/status/570602747915059200)
 
 Проблемы с сокращенными модификаторами:
  - Если у вас генерация html кода
  - Если у вас миксование блоков с модификаторами: http://codepen.io/hudochenkov/pen/OPEMwK?editors=110
- - Доводы от BEM-team: http://getbem.com/faq/#why-the-modifier-classes-are-prefixed
- - "когда ты начнёшь использовать i-bem.js и добавлять/удалять модификаторы динамически, ты поймёшь, что сокращённая запись этому мешает" (c) harisov https://twitter.com/harisov/status/571191436315631616
+ - Доводы от БЭМ-team: http://getБЭМ.com/faq/#why-the-modifier-classes-are-prefixed
+ - "когда ты начнёшь использовать i-БЭМ.js и добавлять/удалять модификаторы динамически, ты поймёшь, что сокращённая запись этому мешает" (c) harisov https://twitter.com/harisov/status/571191436315631616
 
 ###### Сравнение Сокращённых модификаторов и BEViS состояний
 ...
@@ -241,7 +255,7 @@ __Не пишите странные имена__
 ### 2. Привязка к блоку-родителю
 https://twitter.com/delaz/status/580353955244482560
 
-##8. BEM и CSS-препроцессоры: Sass и LESS.
+##8. БЭМ и CSS-препроцессоры: Sass и LESS.
 Extend-Only Selectors в Sass == абстрактный блок (i-блок) в #b_
 ```SCSS
 %i-block {
@@ -285,22 +299,22 @@ _Имена БЭМ-классов создают дополнительный у
 
 
 ##БЭМ CSS
-Ручная верстка по БЭМ называется «BEM CSS». Точнее официльного названия нет, я предлагаю такое.
-Яндекс предлагает именовтаь его как «CSS подмножество БЭМ», потому что БЭМ он не только про CSS, это огромная методология, вершиной которой является Full Stack BEM с bemjson, bemtools и т.д:
+Ручная верстка по БЭМ называется «БЭМ CSS». Точнее официльного названия нет, я предлагаю такое.
+Яндекс предлагает именовтаь его как «CSS подмножество БЭМ», потому что БЭМ он не только про CSS, это огромная методология, вершиной которой является Full Stack БЭМ с БЭМjson, БЭМtools и т.д:
 
-##Full stack BEM?
-![Full stack BEM](http://delka.github.io/talks/webcamp/2015/bem/pictures/full-bem-stack.png "Full stack BEM")
-Когда вам надоесть вручную писать HTML и вам захочется его генерировать и манипулировать им – переходите на Full Stack BEM. Не обязательно полностью отказываться от HTML, можно использовать „BEM project-stub HTML edition“: https://github.com/tadatuta/bem-project-stub-he и https://ru.bem.info/forum/469/
+##Full stack БЭМ?
+![Full stack БЭМ](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/full-БЭМ-stack.png "Full stack БЭМ")
+Когда вам надоесть вручную писать HTML и вам захочется его генерировать и манипулировать им – переходите на Full Stack БЭМ. Не обязательно полностью отказываться от HTML, можно использовать „БЭМ project-stub HTML edition“: https://github.com/tadatuta/БЭМ-project-stub-he и https://ru.БЭМ.info/forum/469/
 
 ##Пример певерстки по БЭМ
 Давайте попробуем переверстать «по-БЭМ» такую верстку.
 Макет:
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-1.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-1.png)
 Вот так она была сверстана:
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-2.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-2.png)
 Похоже на БЭМ, но давайте приглядимся, вот так там назначаются стии:
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-2-css.png)
-Тут происходит повышение специфичности, на самом деле это не БЭМ, я [написал статью на эту тему](http://bit.ly/not-bem).
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-2-css.png)
+Тут происходит повышение специфичности, на самом деле это не БЭМ, я [написал статью на эту тему](http://bit.ly/not-БЭМ).
 
 ##Методология
 Чтобы разобраться как верстать правильно, давайте обратимся к методологии.
@@ -309,19 +323,19 @@ _Имена БЭМ-классов создают дополнительный у
 Методология не менялась, менялась реализация и от правил по написанию CSS Яндекс дошел до стройной системы. Но нам, чтоб правильно писать код вручную, неободимо вспомнить те самые базовые правила:
 
 ##.block
-![.block](http://delka.github.io/talks/webcamp/2015/bem/pictures/block.png)
+![.block](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/block.png)
 
 __Независимый блок__
 >НБ или просто блок, это самодостаточный элемент страницы, который при перемещении в другое место на странице или на другую страницу не теряет своей самодостаточности.
 
-БЭМ.Форум, [Независимый блок](https://ru.bem.info/forum/-43/)
+БЭМ.Форум, [Независимый блок](https://ru.БЭМ.info/forum/-43/)
 
 __Правила независимости блока__
 >1. для описания элемента используется class, но не id
 >2. каждый блок имеет префикс
 >3. в таблице стилей нет классов вне блоков
 
-БЭМ.Форум, [История создания БЭМ](https://ru.bem.info/forum/-147/)
+БЭМ.Форум, [История создания БЭМ](https://ru.БЭМ.info/forum/-147/)
 
 ##Как его таким написать?
 Просто писать стили тупо на каждый блок.
@@ -333,13 +347,13 @@ __Правила независимости блока__
 У него не должно быть каскада.
 
 ##.block__element
-![.block__element](http://delka.github.io/talks/webcamp/2015/bem/pictures/element.png)
+![.block__element](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/element.png)
 
 __Элемент__
 >Элемент – это часть блока, отвечающая за отдельную функцию.
 >_Он может находиться только в составе блока и не имеет смысла в отрыве от него._
 
-bem.info, [Методология](https://ru.bem.info/method/definitions)
+БЭМ.info, [Методология](https://ru.БЭМ.info/method/definitions)
 
 Элемент можно представить себе как папку в файловой системе, это способ организации кода, чтобы было понятно, что к чему относится.
 
@@ -389,7 +403,7 @@ bem.info, [Методология](https://ru.bem.info/method/definitions)
 
 ##Самая страшная ошибка — .block__el__el__el
 Так #b_ поняли и используют зарубежом
-![block__el__el](http://delka.github.io/talks/webcamp/2015/bem/pictures/block__el__el.png)
+![block__el__el](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/block__el__el.png)
 
 ##Я тоже раньше так писал
 ```css
@@ -475,21 +489,21 @@ C кодом ниже будут проблемы при переносе:
 Vladimir Grinenko, [@tadatuta](http://twitter.com/tadatuta)
 
 ##Давайте переверстаем наш макет:
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-mod.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-01.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-02.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-03.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-04.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-05.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-06.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-07.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-08.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-09.png)
-![BEM remarkup example](http://delka.github.io/talks/webcamp/2015/bem/pictures/example-bem-3-10-mf.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-mod.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-01.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-02.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-03.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-04.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-05.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-06.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-07.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-08.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-09.png)
+![БЭМ remarkup example](http://delka.github.io/talks/webcamp/2015/БЭМ/pictures/example-БЭМ-3-10-mf.png)
 
 ---
 Сырой html, переписать:
-  <h2>Мы написали BEM-дерево:</h2>
+  <h2>Мы написали БЭМ-дерево:</h2>
     <pre>
 <code>&lt;div class="block"&gt;</code>
 <code>    &lt;div class="block<mark>__elem1</mark>"&gt;</code>
@@ -558,7 +572,7 @@ Vladimir Grinenko, [@tadatuta](http://twitter.com/tadatuta)
 </div></section>
 
 <section class="slide cover"><div>
-  <img src="pictures/example-bem-3-mod.png" alt="">
+  <img src="pictures/example-БЭМ-3-mod.png" alt="">
 </div></section>
 
 <section class="slide"><div>
@@ -575,7 +589,7 @@ id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" cl
 <!--
 <section class="slide"><div>
     <h2>Статья на Frontender Magazine</h2>
-    <p><a href="https://github.com/FrontenderMagazine/bem-css-methodology-complete-guide/blob/master/rus.md">https://github.com/FrontenderMagazine/bem-css-methodology-complete-guide/blob/master/rus.md</a></p>
+    <p><a href="https://github.com/FrontenderMagazine/БЭМ-css-methodology-complete-guide/blob/master/rus.md">https://github.com/FrontenderMagazine/БЭМ-css-methodology-complete-guide/blob/master/rus.md</a></p>
 </div></section>
 -->
 
@@ -650,7 +664,7 @@ id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" cl
 </div></section>
 
 <section class="slide shout"><div>
-<h2>Задавайте вопросы: <a href="https://ru.bem.info/forum/">ru.bem.info/forum</a></p>
+<h2>Задавайте вопросы: <a href="https://ru.БЭМ.info/forum/">ru.БЭМ.info/forum</a></p>
 <!-- https://docs.google.com/document/d/1KD9tNdArCv1U1NvFX7rYPvUdbpPGVkuPZ2723KW5p4Y/edit">https://docs.google.com/document/d/1KD9tNdArCv1U1NvFX7rYPvUdbpPGVkuPZ2723KW5p4Y/edit -->
 </div></section>
 
@@ -761,7 +775,7 @@ id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" cl
   <img src="pictures/warning.png" alt="">
   <h2>
     Миксы!<br>
-    Full BEM Stack!
+    Full БЭМ Stack!
   </h2>
   <style>
     #warning h2 {
@@ -777,7 +791,7 @@ id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" cl
 Модифкаторы без именеми блока родителя - создают проблемы про миксовании, когда сложные миксы и ты не сможешь определить к какому блоку у тебя относится микс. Довод против - что мы связываем их внутри CSS как .block { &.-type_val}
 НО! Теряем миксы 2х блоков с модификаторами (непонятно - какой мод. к какому блоку относится).
 
-Правильно писать полные модификаторы и Яндекс так рекомендует настоятельно. Вы тереяете возможность юзать full stack BEM - нельзя будет из js узнать "есть ли модификатор у такого блока"
+Правильно писать полные модификаторы и Яндекс так рекомендует настоятельно. Вы тереяете возможность юзать full stack БЭМ - нельзя будет из js узнать "есть ли модификатор у такого блока"
 -->
 </div></section>
 
@@ -803,7 +817,7 @@ id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" cl
   <h2>Вы можете создавать свои гайдлайны</h2>
   <p>БЭМ дает лишь базовый набор правил, конкретную реализацию и синтаксис вы выбираете сами.</p>
 <ul>
-  <li><a href="https://github.com/ideus-team/guidelines/blob/master/frontend/bem.md">https://github.com/ideus-team/guidelines/blob/master/frontend/bem.md</a></li>
+  <li><a href="https://github.com/ideus-team/guidelines/blob/master/frontend/БЭМ.md">https://github.com/ideus-team/guidelines/blob/master/frontend/БЭМ.md</a></li>
   <li><a href="http://nano.sapegin.ru/all/opor-methodology">http://nano.sapegin.ru/all/opor-methodology</a></li>
 </ul>
 </div></section>
@@ -812,3 +826,6 @@ id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" cl
   <h2>Это всё БЭМ</h2>
 </div></section>
 
+[1]: http://delka.name/blog/2013/04/БЭМ-otkroveniya-prinyavshih-veru/
+[2]: http://habrahabr.ru/post/203440/
+[3]: http://clubs.ya.ru/БЭМ/replies.xml?item_no=4
